@@ -1,0 +1,126 @@
+/**Header Styling***/
+* (
+margin: 0;
+padding: 0;
+}
+
+body{
+font-family: arial, helvetica, sans-serif;
+}
+
+h1 {
+ letter-spacing: -1px;
+ color: #000;
+font-size: 30px;
+}
+
+#header {
+width: 100%;
+position: fixed;
+top: 0;
+margin-top:35px;
+}
+
+.container {
+width: 960px;
+margin: auto;
+line-height: 18px;
+font-size: 12px;
+} 
+
+h2 {
+ margin-bottom: 10px;
+font-size: 22px;
+color: #000;
+}
+
+#image-back {
+background-color: #000;
+}
+
+#image #image-back {
+width: 100%;
+position: fixed;
+top:0;
+height: 470px;
+z-index:-2;
+}
+
+#image {
+min-width:960px;
+background: url(http://10000bigones.files.wordpress.com/2012/04/the-top-of-the-mountain3.jpg) top center no-repeat;
+}
+
+.header-container {
+width: 960px;
+margin:auto;
+line-height: 18px;
+font-size: 12px;
+padding-top: 150px;
+text-align: center;
+color: #fff
+}
+
+.container #h3 {
+margin-top: 30px;
+margin-bottom:10px;
+font-size: 18px;
+}
+
+#content {
+margin-top: 470px;
+z-index: 2;
+background: #fff;
+padding-top: 20px;
+position: relative;
+}
+
+//**Form styling**//
+input {
+color: #781351;
+background: #fee3ad;
+border: 1px solid #781351;
+}
+
+fieldset {
+board: 2px solid black;
+width: 20em;
+}
+
+legend {
+color:#fff;
+background: white;
+border: 1px solid white;
+padding: 3px 6px;
+}
+
+//**Font styling**//
+h3 {
+font-family: verdana, geneva, arial, helvetica, sans-serif;
+font-size: 18pt;
+color: navy;
+padding-top: 10px;
+padding-bottom: 3px;
+}
+
+p {
+font-family: verdana, geneva, arial, helvetica, sans-serif;
+font-size: 12pt;
+color: navy;
+padding-top: 2px;
+padding-bottom: 2px
+}
+
+//***Icon Selection Page***///
+.iconselect (
+border: 2px solid navy;
+background colour: 
+margin-left: auto;
+margin-right:auto;
+width: 100px;
+height: 100px;
+}
+
+.icon1 {
+border: 2px solid #fff6e5;
+} 

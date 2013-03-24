@@ -1,0 +1,210 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
+		<script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+
+		<script type="text/javascript">
+
+
+
+function moveSprite() {
+	var sprite = $('#sprite');
+	
+	if (position == 1) {
+		sprite.css('top','410');
+		sprite.css('left','214');
+	} else if (position == 2) {
+		sprite.css('top','420');
+		sprite.css('left','204');
+	} else if (position == 3) {
+		//TODO:Change to next position coords
+		sprite.css('top','415');
+		sprite.css('left','332');
+	} else if (position == 4) {
+		sprite.css('top','266');
+		sprite.css('left','304');
+	} else if (position == 5) {
+		sprite.css('top','156');
+		sprite.css('left','384');	
+	} else if (position == 6) {
+		sprite.css('top','20');
+		sprite.css('left','554');
+	} //And so on
+	else {
+		console.log("Moving sprite to Position " + position + " unhandled!");
+	}
+}
+		
+function submitFormInPopUp()  {
+		
+	if (position == 1) {
+	
+		//increment to the next position
+		position = 2;
+		
+		//Move sprite into position
+		moveSprite();
+		
+		//Do prompts
+		var goal = prompt('How much weight would you like to loose in lbs? (please enter a numerical value)');
+	
+		var timelimit = prompt('How many months do you plan to take to achieve your target weight? (please enter a numerical value)');
+
+		alert('Did you know:  Your Mood is Affected by Your Food - A recent study of 3,500 office staff found that a high intake of processed foods (sugar, fried food, refined grains) is a risk factor for depression, whereas a whole food diet (vegetables, fruit, fish) is protective.');
+	
+		alert('Return here in one week to update your progress');
+		
+		
+		
+	} else if (position == 2) {
+		//increment to the next position
+		position = 3;
+		
+		//Move sprite into position
+		moveSprite();
+		
+		var cresult = confirm('Welcome back! Did you loose weight this week?');
+	
+		if (cresult) {
+			alert('Excellent!  Well done!');
+		} else {
+			alert('Oh dear, never mind, you can try again this week.');
+		}
+
+		alert('Did you know:  If you are overweight, or obese, every little bit of weight you lose lightens the load on your joints.');
+	
+		alert('Return here in one week to update your progress');
+		
+		
+	
+	} else if (position == 3) {
+		//increment to the next position
+		position = 4;
+		
+		//Move sprite into position
+		moveSprite();
+		
+		//TODO:Add prompts for this position
+	
+		var cresult = confirm('Welcome back! Did you loose weight this week?');
+	
+		if (cresult) {
+			alert('Excellent!  Well done!');
+		} else {
+			alert('Oh dear, never mind, you can try again this week.');
+		}
+
+		alert('Did you know:   For 18 months, Messier et al (2005) studied 142 overweight and obese people with osteoarthritis of the knee.  They showed that for every pound of body weight lost, there is a 4-pound reduction in knee joint load and stress.  Every little helps.');
+	
+		alert('Return here in one week to update your progress');	
+	
+	
+	} else if (position == 4) {
+		//increment to the next position
+		position = 5;
+		
+		//Move sprite into position
+		moveSprite();
+		
+		//TODO:Add prompts for this position
+	
+		var cresult = confirm('Welcome back! Did you loose weight this week?');
+	
+		if (cresult) {
+			alert('Excellent!  Well done!');
+		} else {
+			alert('Oh dear, never mind, you can try again this week.');
+		}
+
+		alert('Did you know:  "For people losing 10 pounds, each knee would be subjected to 48,000 pounds less in compressive load per mile walked." How many steps do you walk a day? Ten minutes of brisk walking is approximately 1000 steps.');
+	
+		alert('Return here in one week to update your progress');	
+	
+	} else if (position == 5) {
+		//increment to the next position
+		position = 6;
+		
+		//Move sprite into position
+		moveSprite();
+		
+		//TODO:Add prompts for this position
+	
+		alert('Brilliant! You have successfully achieved your aim. Take a moment to reflect on your journey.');
+	
+		alert('You can set another goal now to keep up your good work!  Return to the home page to select a new game.');	
+	
+	
+	
+	
+	} //And so on
+	else {
+		console.log("Prompts for Position " + position + " unhandled!");
+	}
+	
+	//store the resulting position in a cookie
+	//stored for 180 days
+	setCookie("position", position, 180);
+}
+
+//function to set a cookie
+function setCookie(c_name, value, exdays) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
+    document.cookie = c_name + "=" + c_value;
+}
+
+//functon to get a save cookie
+function getCookie(c_name) {
+    var i, x, y, ARRcookies = document.cookie.split(";");
+    for (i = 0; i < ARRcookies.length; i++)
+    {
+        x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+        y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+        x = x.replace(/^\s+|\s+$/g, "");
+        if (x == c_name)
+        {
+            return unescape(y);
+        }
+    }
+	return null;
+}
+
+//the board position of the sprite
+//starts at one
+var position = 1;
+	
+//Called once document is fully loaded	
+//sets the position from a cookie if available
+$(window).load(function() {
+	//read the position cookie for this site
+	var p = getCookie("position");
+	//if the cookie exists set it
+	if (p != null && p != undefined) {
+		position = p;
+		console.log("Setting position to "  + position + " from cookie");
+		moveSprite();
+	}
+});		
+
+	</script>
+
+
+	</head>
+	<body>
+		<div>
+			<h2>Aiming to Game</h2>
+			<p>Select your avatar on the achievement path to set and check your goals</p>
+				<div id="achievementtreeboard" style="position:relative">
+					<img id="achievementtreeimg" src="Images/Painting Title_019.png" height="600" style="position: absolute; top: 0; left: 0;" />
+						<img id="sprite" src="Images\Painting Title_002.png"  style="position: absolute; top: 430; left: 100; z-index:10;" height="100" onclick="submitFormInPopUp()" />
+						<img id="target1" src="Images\Painting Title_020.png" style="position: absolute; top: 282; left: 160; z-index:5;" height="400" />
+						<img id="target2" src="Images\Painting Title_016.png" style="position: absolute; top: 286; left: 25; z-index:4;" height="400"  />
+						<img id="target4" src="Images\Painting Title_020.png" style="position: absolute; top: 20; left: 200; z-index:5;" height="400" />
+						<img id="target5" src="Images\Painting Title_016.png" style="position: absolute; top: 124; left: 125; z-index:4;" height="400"  />
+						<img id="target3" src="Images\Level one complete icon.png" style="position: absolute; top: 50; left: 570; z-index:3;" height="100"  />
+ 
+				</div>
+		</div>
+	</body>
+</html>
